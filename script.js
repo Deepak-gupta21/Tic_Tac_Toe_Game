@@ -4,12 +4,14 @@ let audioTurn = new Audio("ting.mp3")
 let gameover = new Audio("gameover.mp3")
 let turn = "X"
 let isgameover = false;
-
+let vid= music.play()
+vid.volume =0.6;
 // Function to change the turn
 const changeTurn = ()=>{
     return turn === "X"? "0": "X"
 }
-
+// var vid = document.getElementById("myVideo");
+// vid.volume = 0.2;
 // Function to check for a win
 const checkWin = ()=>{
     let boxtext = document.getElementsByClassName('boxtext');
@@ -30,12 +32,14 @@ const checkWin = ()=>{
             document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "200px";
             document.querySelector(".line").style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`
             document.querySelector(".line").style.width = "20vw";
+            gameover.play();
+            
         }
     })
 }
 
 // Game Logic
-// music.play()
+
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>{
     let boxtext = element.querySelector('.boxtext');
